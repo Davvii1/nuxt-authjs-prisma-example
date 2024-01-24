@@ -6,12 +6,12 @@ export default defineNuxtConfig({
     cookie: "cookie",
   },
   // Optional default config | AuthJS
-  //  authJs: {
+  authJs: {
   //    verifyClientOnEveryRequest: true,
   //    guestRedirectTo: "/", // where to redirect if the user is not authenticated
   //    authenticatedRedirectTo: "/", // where to redirect if the user is authenticated
-  //    baseUrl: "" // should be something like https://www.my-app.com
-  //  },
+    baseUrl: "https://reclunuxt-3a7902548cfb.herokuapp.com" // should be something like https://www.my-app.com
+  },
   runtimeConfig: {
     google: {
       clientId: process.env.NUXT_GOOGLE_CLIENT_ID,

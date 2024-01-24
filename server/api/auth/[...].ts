@@ -1,4 +1,5 @@
 import CredentialsProvider from "@auth/core/providers/credentials";
+import Google from "@auth/core/providers/google";
 import type { AuthConfig } from "@auth/core/types";
 import { NuxtAuthHandler } from "#auth";
 
@@ -13,7 +14,7 @@ export const authOptions: AuthConfig = {
   secret: runtimeConfig.authJs.secret,
   providers: [
     CredentialsProvider({
-      name: "Iniciar sesión",
+      id: "credentials",
       credentials: {
         email: {
           label: "Correo electrónico",
@@ -33,12 +34,16 @@ export const authOptions: AuthConfig = {
         if (!user) return null;
         if (!(credentials.password == user.password)) return null;
         return {
-          id: user.id,
+          id: user.id.toString(),
           name: user.name,
           email: user.email,
           role: user.role,
         };
       },
+    }),
+    Google({
+      clientId: runtimeConfig.google.clientId,
+      clientSecret: runtimeConfig.google.clientSecret,
     }),
   ],
   callbacks: {
@@ -49,7 +54,7 @@ export const authOptions: AuthConfig = {
       }
       return token;
     },
-    session({ session, token }) {
+    session({ session, token }: any) {
       session.user.id = token.id;
       session.user.role = token.role;
       return session;

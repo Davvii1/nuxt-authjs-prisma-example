@@ -13,6 +13,10 @@ export default defineNuxtConfig({
   //    baseUrl: "" // should be something like https://www.my-app.com
   //  },
   runtimeConfig: {
+    google: {
+      clientId: process.env.NUXT_GOOGLE_CLIENT_ID,
+      clientSecret: process.env.NUXT_GOOGLE_CLIENT_SECRET,
+    },
     authJs: {
       secret: process.env.NUXT_NEXTAUTH_SECRET, // You can generate one with `openssl rand -base64 32`
     },

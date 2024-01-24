@@ -1,7 +1,3 @@
-<script setup lang="ts">
-const { signIn, signOut, session, status, cookies, getProviders } = useAuth();
-</script>
-
 <template>
   <div>
     <div>
@@ -13,7 +9,10 @@ const { signIn, signOut, session, status, cookies, getProviders } = useAuth();
       <pre>{{ status }}</pre>
       <pre>{{ session?.user }}</pre>
       <pre>{{ session }}</pre>
-      <pre>{{ cookies }}</pre>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const { signIn, signOut, session, status, cookies, getProviders } = useAuth();
+</script>

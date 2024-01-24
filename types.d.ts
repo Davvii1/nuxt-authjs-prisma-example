@@ -3,7 +3,6 @@ declare module "@auth/core/types" {
     user?: User;
   }
   interface User {
-    id: number;
     role: string;
   }
 }

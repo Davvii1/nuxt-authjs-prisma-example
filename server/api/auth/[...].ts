@@ -60,9 +60,6 @@ export const authOptions: AuthConfig = {
       return session;
     },
   },
-  pages: {
-    signIn: "api/auth/signin",
-  },
 };
 
 export default NuxtAuthHandler(authOptions, runtimeConfig);
